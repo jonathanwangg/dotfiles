@@ -14,6 +14,15 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Leader Key (Must be before loading lazy.nvim)
+vim.g.mapleader = " "  -- Set the leader key to spacebar
+
+-- Map leader key to open Telescope's find_files
+vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true, silent = true })
+
+-- Map leader key to search using live_grep (search text across files)
+vim.api.nvim_set_keymap('n', '<leader>fg', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+
 -- Now we initialize lazy.nvim and tell it where to look for the plugin specs.
 require("lazy").setup("plugins", {
   ui = {
@@ -38,17 +47,10 @@ require("lazy").setup("plugins", {
 vim.opt.wildmenu = true
 vim.opt.wildmode = "list:longest,list:full" -- don't insert, show options
 
--- line numbers
+-- Line Numbers
 vim.opt.nu = true
 vim.opt.rnu = true
 
 -- textwrap at 80 cols
 -- vim.opt.tw = 80
-
--- set solarized colorscheme.
--- NOTE: Uncomment this if you have installed solarized, otherwise you'll see
---       errors.
--- vim.cmd.background = "dark"
--- vim.cmd.colorscheme("solarized")
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
