@@ -51,6 +51,10 @@ vim.opt.wildmode = "list:longest,list:full" -- don't insert, show options
 vim.opt.nu = true
 vim.opt.rnu = true
 
+-- Enable case-insensitive search unless uppercase letters are used
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 -- textwrap at 80 cols
 -- vim.opt.tw = 80
 
