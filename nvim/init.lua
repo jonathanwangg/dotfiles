@@ -23,6 +23,13 @@ vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', { norema
 -- Map leader key to search using live_grep (search text across files)
 vim.api.nvim_set_keymap('n', '<leader>fg', ':Telescope live_grep<CR>', { noremap = true, silent = true })
 
+-- Enable colors in your colorscheme, cursor highlights, and other UI elements look richer, smoother, and exactly as intended.
+vim.opt.termguicolors = true
+
+-- Enable cursor highlighting
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+
 -- Now we initialize lazy.nvim and tell it where to look for the plugin specs.
 require("lazy").setup("plugins", {
   ui = {
@@ -57,4 +64,10 @@ vim.opt.smartcase = true
 
 -- textwrap at 80 cols
 -- vim.opt.tw = 80
+
+-- Define / Override highlight groups for colorscheme to show CursorColumn.
+vim.cmd [[
+  highlight CursorLine guibg=#3a3a3a
+  highlight CursorColumn guibg=#3a3a3a
+]]
 
