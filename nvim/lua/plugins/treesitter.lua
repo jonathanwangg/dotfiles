@@ -3,7 +3,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",  -- Automatically update treesitter parsers after installation
+		build = ":TSUpdate",  -- Automatically update treesitter parsers after installation
 		config = function()
 			require'nvim-treesitter.configs'.setup {
 				ensure_installed = { "cpp", "swift", "objc" },  -- Automatically install maintained parsers
